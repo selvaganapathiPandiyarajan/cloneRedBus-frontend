@@ -1,0 +1,525 @@
+<nav class="navbar navbar-expand-sm  navbar-dark fixed-top" style="background-color:#e6545b;">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#"><img src="https://i.postimg.cc/zXFNsGkg/redbus-white.png" alt="redBus" width="60px"></a>
+
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="menu-nav">
+        <!-- Left-aligned nav (default) -->
+        <div>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-white text-uppercase">Bus Tickets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text" href="#">rYde</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text-uppercase">Red Rail</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right-aligned nav -->
+        <div class="collapse navbar-collapse justify-content-end" id="menu-nav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Help</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">selva</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+</nav>
+
+   <header class="bg-surface-primary border-bottom pt-6" style="margin-top:64px;">
+        <div class="container-fluid">
+          <div class="mb-npx">
+            <div class="row align-items-center" style="background-color:rgb(241, 241, 241);">
+              <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                <!-- Title -->
+
+                <p class="mb-0 ls-tight" style="font-weight:18px ;">Home > Busticket > Chennai Bus > <span style="color:red">Madurai TO Chennai</span></p>
+                <p style="font-size:15px;font-weight:200px">Fare Starts from INR 399</p>
+              </div> <!-- Actions -->
+              <div class="col-sm-6 col-12 text-sm-end">
+                <div class="mx-n1">
+                        </div>
+              </div>
+            </div>
+            <div class="row align-items-center" style="margin-top:10px;">
+                <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                  <!-- Title -->
+  
+                  <div class="mb-0 ls-tight"><span *ngIf="!visible"><span style="font-size: 18px;"><i class="fa fa-building" aria-hidden="true"></i>&nbsp;&nbsp;Madurai</span> <i class="fa fa-arrow-right" aria-hidden="true" style="padding-left:40px;
+                    font-weight: bold;
+                    font-size: 21px;
+                    padding-top: 8px;"></i>&nbsp; <span style="margin-left: 30px;font-size:18px"><i class="fa fa-building" aria-hidden="true"></i>&nbsp;&nbsp;chennai</span><button (click)="verfify()" style="    margin-left: 41px;
+    width: 80px;">Moditify </button></span><span *ngIf="visible">&nbsp;From<input class="inp" value="madurai" id="from">&nbsp;&nbsp;
+                  <i class='fas fa-arrows-alt-h' (click)="change()"></i>&nbsp;To<input class="inp" value="chennai" id="to">&nbsp;&nbsp;<input type="date"class="inp1" required placeholder="Joureny Date" min="{{mindate}}" ><button (click)="verfify()" style="    margin-left: 41px;
+                  width: 80px;color: white;background-color: #e6545b;" (click)="nexttrip()">Search </button></span></div>
+                  
+            
+                </div> <!-- Actions -->
+                <div class="col-sm-6 col-12 text-sm-end">
+                  <div class="mx-n1">
+                          </div>
+                </div>
+              </div>
+            <!-- Nav -->
+            <div class="row g-6 mb-6">
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card shadow border-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col"> 
+                        <span class="h3 font-bold mb-0">
+                          <img src="/assets/primo.png" style="width: 260px"
+                          >
+
+                        </span> </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card shadow border-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <span class="h3 font-bold mb-0">
+                            <img src="/assets/MainCard.png" style="width:260px"
+                            >
+  
+                           </span> </div>
+                      <div class="col-auto">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card shadow border-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col"> 
+                        <span class="h3 font-bold mb-0">
+                            <img src="/assets/Returnonward.png" >
+                                                  </span> </div>
+                      <div class="col-auto">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card shadow border-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col"></div>
+                      <span class="h3 font-bold mb-0">
+                        <img src="\assets\FlexiTicket.png" style="width: 276px">
+                                              </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-center" style="background-color:white">
+                <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                  <!-- Title -->
+  
+                  <p class="mb-0 ls-tight" style="font-weight:18px ;">
+                      <i class="fa fa-star" aria-hidden="true"></i>  All bus ratings include safety as a major factor</p>
+                </div> <!-- Actions -->
+                <div class="col-sm-6 col-12 text-sm-end">
+                  <div class="mx-n1">
+                          </div>
+                </div>
+              </div>
+              <ul class="nav nav-tabs mt-4 overflow-x border-0 topnav">
+                <li class="nav-item "> <a class="nav-link">Sleeper</a> </li>
+                <li class="nav-item "> <a class="nav-link">Seater</a> </li>
+                <li class="nav-item"> <a class="nav-link" >AC</a> </li>
+                <li class="nav-item"> <a class="nav-link" >Non Ac</a> </li>
+              </ul>
+            </div>
+
+
+     
+            
+            <div class="row g-6 mb-6 border shadow" *ngIf="mdu1">
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"> 
+                         <img src="/assets/primo_logo.svg" style="width:70px"><br/>
+                         <span class=" h3 font-bold mb-0">Selva Traval</span><br/>
+                         <span class=" h6font-bold  mb-0" style="margin-top: 4px;">Ac Sleeper (2+1)</span><br/>
+                         <span class=" h6font-bold  mb-0" style="margin-top: 5px;"><i class="fa-solid fa-bottle-water"></i>&nbsp;<i class="fa-solid fa-bed"></i>&nbsp;<i class="fa-solid fa-wifi"></i>&nbsp;<i class="fa-solid fa-charging-station"></i>&nbsp;
+                            <i class="fa-solid fa-battery-bolt"></i>&nbsp;<i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </span><br/>
+
+                         
+
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                            <span class=" h4 font-bold mb-0"><i class="fa fa-building" aria-hidden="true"></i><span style="margin-left:10px">From:Madurai</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa fa-building" aria-hidden="true"></i><span style="margin-left:10px">To:Chennai</span></span><br/>
+                            <span class="  mb-0"><i class="fa-solid fa-stopwatch"></i><span style="margin-left:10px">Start:10PM</span></span><br/>
+                            <span class="  mb-0"><i class="fa-solid fa-stopwatch"></i><span style="margin-left:10px">Arrival:6AM</span></span><br/>
+
+
+
+                           </div>
+                        <div class="col-auto">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"> 
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-sack-dollar"></i><span style="margin-left:10px">Fare:800</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-star"></i><span style="margin-left:10px">Rating:<span style="color:green;font-weight:bold">3.5</span></span></span><br/>
+                            <span class="  mb-0"><i class="fa-solid fa-stopwatch"></i><span style="margin-left:10px">Duration:9 hour</span></span><br/>
+  
+                        </div>
+                        <div class="col-auto">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12" >
+                  <div class="card border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"></div>
+                        <span class="h3 font-bold mb-0">
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-bed"></i><span style="margin-left:10px">Ac Sleeper : 10</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-bed"></i><span style="margin-left:10px">Non-Ac Sleeper:5</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-bed"></i><span style="margin-left:10px">Seater:5</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><span style="margin-left:10px"><button style="color:white ;background-color:#e6545b" (click)="seatvis()">VIEW SEAT</button></span></span><br/>
+
+                                                       
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-6 mb-6 border shadow" *ngIf="seatvisble">
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"> 
+                            <p>Lower Desk</p> 
+
+                         <img src="/assets/seat1.png" style="width: 327px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">                         
+
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                            <p>Upperdesk</p> 
+
+                            <img src="/assets/seat2.png" style="width: 327px;">                         
+
+                        
+                   
+
+                           </div>
+                        <div class="col-auto">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                            <p>Upperdesk-1</p> 
+                            <img src="/assets/seat3.png" style="width: 327px;">                         
+
+                        </div>
+                        <div class="col-auto">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"></div>
+                        <span class="h3 font-bold mb-0">
+                            <span class=" h4 font-bold mb-0"><i class='fa-solid fa-rectangle-list' style='color: black'></i><span style="margin-left:10px">Un avaible</span>
+                            </span><br/>
+                            <span class=" h4 font-bold mb-0"><i class='fa-solid fa-rectangle-list' style='color: blue'></i><span style="margin-left:10px">For Men</span>
+                            </span><br/>
+                            <span class=" h4 font-bold mb-0"><i class='fa-solid fa-rectangle-list' style='color: red'></i><span style="margin-left:10px">For Women</span>
+                            </span><br/>
+                            
+                                                       
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row g-6 mb-6 border shadow" *ngIf="mdu2">
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"> 
+                         <img src="/assets/primo_logo.svg" style="width:70px"><br/>
+                         <span class=" h3 font-bold mb-0">Krithin Traval</span><br/>
+                         <span class=" h6font-bold  mb-0" style="margin-top: 4px;">Ac Sleeper (2+1)</span><br/>
+                         <span class=" h6font-bold  mb-0" style="margin-top: 5px;"><i class="fa-solid fa-bottle-water"></i>&nbsp;<i class="fa-solid fa-bed"></i>&nbsp;<i class="fa-solid fa-wifi"></i>&nbsp;<i class="fa-solid fa-charging-station"></i>&nbsp;
+                            <i class="fa-solid fa-battery-bolt"></i>&nbsp;<i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </span><br/>
+
+                         
+
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                            <span class=" h4 font-bold mb-0"><i class="fa fa-building" aria-hidden="true"></i><span style="margin-left:10px">From:Madurai</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa fa-building" aria-hidden="true"></i><span style="margin-left:10px">To:Chennai</span></span><br/>
+                            <span class="  mb-0"><i class="fa-solid fa-stopwatch"></i><span style="margin-left:10px">Start:12PM</span></span><br/>
+                            <span class="  mb-0"><i class="fa-solid fa-stopwatch"></i><span style="margin-left:10px">Arrival:10AM</span></span><br/>
+
+
+
+                           </div>
+                        <div class="col-auto">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"> 
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-sack-dollar"></i><span style="margin-left:10px">Fare:1000</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-star"></i><span style="margin-left:10px">Rating:<span style="color:red;font-weight:bold">3.5</span></span></span><br/>
+                            <span class="  mb-0"><i class="fa-solid fa-stopwatch"></i><span style="margin-left:10px">Duration:9.5hour</span></span><br/>
+  
+                        </div>
+                        <div class="col-auto">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"></div>
+                        <span class="h3 font-bold mb-0">
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-bed"></i><span style="margin-left:10px">Ac Sleeper :15</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-bed"></i><span style="margin-left:10px">Non-Ac Sleeper:5</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-bed"></i><span style="margin-left:10px">Seater:5</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><span style="margin-left:10px"><button style="color:white ;background-color:#e6545b">View Seat</button></span></span><br/>
+
+                                                       
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+
+              <div class="row g-6 mb-6 border shadow" *ngIf="thenivis">
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"> 
+                         <img src="/assets/primo_logo.svg" style="width:70px"><br/>
+                         <span class=" h3 font-bold mb-0">Raj Traval</span><br/>
+                         <span class=" h6font-bold  mb-0" style="margin-top: 4px;">Ac Sleeper (2+1)</span><br/>
+                         <span class=" h6font-bold  mb-0" style="margin-top: 5px;"><i class="fa-solid fa-bottle-water"></i>&nbsp;<i class="fa-solid fa-bed"></i>&nbsp;<i class="fa-solid fa-wifi"></i>&nbsp;<i class="fa-solid fa-charging-station"></i>&nbsp;
+                            <i class="fa-solid fa-battery-bolt"></i>&nbsp;
+                        </span><br/>
+
+                         
+
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                            <span class=" h4 font-bold mb-0"><i class="fa fa-building" aria-hidden="true"></i><span style="margin-left:10px">From:Madurai</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa fa-building" aria-hidden="true"></i><span style="margin-left:10px">To:Theni</span></span><br/>
+                            <span class="  mb-0"><i class="fa-solid fa-stopwatch"></i><span style="margin-left:10px">Start:10PM</span></span><br/>
+                            <span class="  mb-0"><i class="fa-solid fa-stopwatch"></i><span style="margin-left:10px">Arrival:12AM</span></span><br/>
+
+
+
+                           </div>
+                        <div class="col-auto">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card  border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"> 
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-sack-dollar"></i><span style="margin-left:10px">Fare:200</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-star"></i><span style="margin-left:10px">Rating:<span style="color:red;font-weight:bold">2.5</span></span></span><br/>
+                            <span class="  mb-0"><i class="fa-solid fa-stopwatch"></i><span style="margin-left:10px">Duration:2hour</span></span><br/>
+  
+                        </div>
+                        <div class="col-auto">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col"></div>
+                        <span class="h3 font-bold mb-0">
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-bed"></i><span style="margin-left:10px">Ac Sleeper :10</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-bed"></i><span style="margin-left:10px">Non-Ac Sleeper:3</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><i class="fa-solid fa-bed"></i><span style="margin-left:10px">Seater:3</span></span><br/>
+                            <span class=" h4 font-bold mb-0"><span style="margin-left:10px"><button style="color:white ;background-color:#e6545b;margin-top: 28px;
+                                ">View Seat</button></span></span><br/>
+
+                                                       
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+            <!-- <ul class="nav nav-tabs mt-4 overflow-x border-0 topnav">
+              <li class="nav-item "> <a class="nav-link" (click)="tableview()">All</a> </li>
+              <li class="nav-item "> <a class="nav-link" (click)="tableview1()">Pending</a> </li>
+              <li class="nav-item"> <a class="nav-link" (click)="tableview2()">Open</a> </li>
+              <li class="nav-item"> <a class="nav-link" (click)="tableview3()">Close</a> </li>
+            </ul> -->
+          </div>
+        </div>
+      </header>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content"     style="background-color: #eee;">
+            <div class="modal-header" style="background-color:#e6545b;">
+                <img src="https://i.postimg.cc/zXFNsGkg/redbus-white.png" alt="redBus" width="60px">
+              <h5 class="modal-title heading" id="exampleModalLabel">Ticket Booking</h5>
+              <h3 class="modal-title heading" id="exampleModalLabel">Selva Traval</h3>
+              
+            </div>
+            <div class="modal-body">
+                  <div class="form-group row">
+                <label for="issuse" class="col-sm-2 col-form-label modallabal">Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control field" id="issuse"  formControlName="issuse" value="Selva">
+                </div>
+              </div>&nbsp;
+              <div class="form-group row">
+                <label for="projectlist" class="col-sm-2 col-form-label modallabal">Email:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control field" id="projectlist" formControlName="projectlist"  value="selva@gmail.com">
+                </div>
+              </div>&nbsp;
+                          
+              <div class="form-group row">
+                <label for="assets" class="col-sm-2 col-form-label modallabal" >Contact No:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control field" id="assets"  formControlName="assets" value="8190086456">
+                </div>
+              </div>&nbsp;
+              <div class="form-group row">
+                <label for="assets" class="col-sm-2 col-form-label modallabal" >Joureny:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control field" id="assets"  formControlName="assets" value="Madurai to Chennai">
+                </div>
+              </div>  &nbsp; 
+              <div class="form-group row">
+                <label for="assets" class="col-sm-2 col-form-label modallabal" >Joureny Date:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control field" id="assets"  formControlName="assets" value="26.08.2022">
+                </div>
+              </div>   
+              <div class="form-group row">
+                <label for="assets" class="col-sm-2 col-form-label modallabal" >Seat No</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control field" id="assets"  formControlName="assets" value="L-04">
+                </div>
+              </div><br/>
+              <div class="form-group row">
+                <label for="assets" class="col-sm-2 col-form-label modallabal" >Seat  Type</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control field" id="assets"  formControlName="assets" value=" Ac Sleeper">
+                </div>
+              </div>
+            </div><br/>
+            <div class="modal-footer">
+              <button type="button" class="btn" style="margin-right:200px;color:white;background-color: #e6545b;" (click)="pay()">Pay Now</button>
+            </div>
+          </div>
+        </div>
+      </div>

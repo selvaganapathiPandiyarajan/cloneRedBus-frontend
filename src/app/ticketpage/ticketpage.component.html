@@ -1,0 +1,802 @@
+<nav class="navbar navbar-expand-sm  navbar-dark fixed-top" style="background-color:#e6545b;">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#"><img src="https://i.postimg.cc/zXFNsGkg/redbus-white.png" alt="redBus"
+        width="60px"></a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="menu-nav">
+      <!-- Left-aligned nav (default) -->
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white text-uppercase">Bus Tickets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text">rYde</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text">Red Rail</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right-aligned nav -->
+      <div class="collapse navbar-collapse justify-content-end" id="menu-nav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Help</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="fa fa-user" aria-hidden="true"></i><span
+                style="margin-left:10px">{{userData[0].firstname}}</span></a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<header class="bg-surface-primary border-bottom pt-6" style="margin-top:64px;background-color:rgb(241, 241, 241);">
+  <div class="container-fluid">
+    <div class="mb-npx">
+      <div class="row align-items-center">
+        <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+          <!-- Title -->
+
+          <p class="mb-0 ls-tight"><span style="font-weight: bold;color: rgb(40, 40, 40);font-size:18px ;">Home</span>
+            &nbsp;> &nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:16px ;">Busticket</span> &nbsp; >
+            &nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size:16px ;">{{searchDetail.To}} Bus &nbsp; > </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="color:red;font-size: 16px;">{{searchDetail.From}} TO {{ searchDetail.To }}</span>
+          </p>
+          <p style="font-size:15px;font-weight:bold;color: rgb(45, 42, 42);">Fare Starts from INR 399</p>
+        </div> <!-- Actions -->
+        <div class="col-sm-6 col-12 text-sm-end">
+          <div class="mx-n1">
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <ul class="nav nav-tabs mt-4 overflow-x border-0 topnav">
+          <li class="nav-item "> <a class="nav-link" (click)="tableview()">All</a> </li>
+          <li class="nav-item "> <a class="nav-link" (click)="tableview1()">Pending</a> </li>
+          <li class="nav-item"> <a class="nav-link" (click)="tableview2()">Open</a> </li>
+          <li class="nav-item"> <a class="nav-link" (click)="tableview3()">Close</a> </li>
+        </ul> -->
+    </div>
+  </div>
+</header>
+<header class="bg-surface-primary border-bottom pt-6" style="background-color:rgb(241, 241, 241);">
+  <div class="container-fluid">
+    <div class="mb-npx">
+      <div class="row align-items-center">
+        <!-- Actions -->
+        <div class="row align-items-center" style="margin-bottom:20px;">
+          <div class="col-sm-12 col-12 mb-4 mb-sm-0">
+            <!-- Title -->
+
+            <div class="mb-0 ls-tight"><span *ngIf="!visible"><span
+                  style="font-size: 18px;font-weight: bold;color:rgb(85, 85, 85)"><i class="fa fa-building"
+                    aria-hidden="true"></i>&nbsp;&nbsp;{{searchDetail.From}}</span> <i class="fa fa-arrow-right" aria-hidden="true"
+                  style="padding-left:40px;
+            font-weight: bold;
+            font-size: 16px;
+            padding-top: 8px;"></i>&nbsp; <span
+                  style="margin-left: 30px;font-size: 18px;font-weight: bold;color:rgb(85, 85, 85)"><i
+                    class="fa fa-building" aria-hidden="true"></i>&nbsp;&nbsp;{{searchDetail.To}}</span><i
+                  class="fa-solid fa-greater-than" style="    font-size: 14px;
+    margin-left: 20px;"></i><span style="font-size: 18px;
+    font-weight: bold;
+color:rgb(85, 85, 85);margin-left: 10px;margin-right: 10px;">{{searchDetail.date | date:'dd-MMM'}}</span><i class="fa-solid fa-less-than"
+                  style="font-size: 15px;"></i><button (click)="verfify()" style="    margin-left: 41px;
+width: 80px;border: 1px solid black;border-radius: 5px;">Moditify </button></span><span
+                *ngIf="visible">&nbsp;From<input class="inp" value="{{searchDetail.From}}" id="from">&nbsp;&nbsp;
+                <i class='fas fa-arrows-alt-h' (click)="change()"></i>&nbsp;To<input class="inp" value="{{searchDetail.To}}"
+                  id="to">&nbsp;&nbsp;<input type="date" value="{{searchDetail.date}}" class="inp1" required placeholder="Joureny Date"
+                  min="{{mindate}}" id="date"><button (click)="verfify()" style="    margin-left: 41px;
+          width: 80px;color: white;background-color: #e6545b;" (click)="nexttrip()">Search </button></span></div>
+
+
+          </div> <!-- Actions -->
+          <div class="col-sm-6 col-12 text-sm-end">
+            <div class="mx-n1">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <ul class="nav nav-tabs mt-4 overflow-x border-0 topnav">
+          <li class="nav-item "> <a class="nav-link" (click)="tableview()">All</a> </li>
+          <li class="nav-item "> <a class="nav-link" (click)="tableview1()">Pending</a> </li>
+          <li class="nav-item"> <a class="nav-link" (click)="tableview2()">Open</a> </li>
+          <li class="nav-item"> <a class="nav-link" (click)="tableview3()">Close</a> </li>
+        </ul> -->
+    </div>
+  </div>
+</header>
+
+<div class="row h-screen" style="width:100%">
+
+  <div class="col-xl-2 col-lg-2 col-sm-12" style="padding-right: 0 !important;">
+    <nav
+      class="navbar show navbar-vertical  navbar-expand-lg px-0 py-3 navbar-light  border-bottom border-bottom-lg-0 border-end-lg sidenav"
+      id="navbarVertical">
+      <div class="container-fluid ">
+        <!-- Toggler --> <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse"
+          data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false"
+          aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <!-- Brand -->
+        <!-- User menu (mobile) -->
+        <div class="navbar-user d">
+          <!-- Dropdown -->
+
+        </div> <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidebarCollapse" style="margin-left: 20px; margin-bottom: 512px;
+        ">
+          <!-- Navigation -->
+          <ul class="navbar-nav" style="flex-direction: column !important;
+          ">
+            <span style="    font-weight: bold;
+                                           font-size: 15px;
+                                           color: rgb(44, 44, 44);">DEPARTURE TIME</span>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike">&nbsp;&nbsp;Before 6am</span> </a> </li>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike">&nbsp;&nbsp;6am to 12pm</span> </a> </li>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike">&nbsp;&nbsp;12pm to 06Pm </span> </a> </li>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike">&nbsp;&nbsp;After 06Pm</span> </a> </li>
+            <span style="    font-weight: bold;
+                                  font-size: 15px;
+                                  color: rgb(44, 44, 44);">BUS TYPES</span>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike">&nbsp;&nbsp;SEATER</span> </a> </li>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike" (click)="getSleeper(searchDetail.From,searchDetail.To )">&nbsp;&nbsp;SLEEPER</span> </a> </li>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike" (click)="getAcfilter(searchDetail.From,searchDetail.To )">&nbsp;&nbsp;AC </span> </a> </li>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike" (click)="getNonAcfilter(searchDetail.From,searchDetail.To )">&nbsp;&nbsp;NON AC</span> </a> </li>
+            <span style="    font-weight: bold;
+                         font-size: 15px;
+                         color: rgb(44, 44, 44);">SEAT AVAILABILITY</span>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike">&nbsp;&nbsp;Single Seats</span> </a> </li>
+            <span style="    font-weight: bold;
+   font-size: 15px;
+   color: rgb(44, 44, 44);">ARRIVAL TIME</span>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike">&nbsp;&nbsp;Before 6 am</span> </a> </li>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike">&nbsp;&nbsp;6am to 12 pm</span> </a> </li>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike">&nbsp;&nbsp;12pm to 06Pm </span> </a> </li>
+            <li class="nav-item sidenavword"> <a class="nav-link"> <span class="sidenavword"><input type="checkbox"
+                    id="vehicle1" name="vehicle1" value="Bike">&nbsp;&nbsp;After 06Pm</span> </a> </li>
+            <hr class="navbar-divider my-5 ">
+          </ul> <!-- Divider -->
+          <hr class="navbar-divider my-5 opacity-20"> <!-- Navigation -->
+
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="col-xl-10 col-lg-10 col-sm-12" style="padding-left: 0 !important;">
+
+
+    <header class="bg-surface-primary border-bottom pt-6">
+      <div class="container-fluid">
+        <div class="mb-npx">
+
+          <!-- Nav -->
+          <div class="row g-6 mb-6">
+            <div class="col-xl-3 col-sm-6 col-12">
+              <div class="card shadow border-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <span class="h3 font-bold mb-0">
+                        <img src="/assets/primo.png" style="width: 260px">
+
+
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12">
+              <div class="card shadow border-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <span class="h3 font-bold mb-0">
+                        <img src="/assets/MainCard.png" style="width:260px">
+
+                      </span>
+                    </div>
+                    <div class="col-auto">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12">
+              <div class="card shadow border-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <span class="h3 font-bold mb-0">
+                        <img src="/assets/Returnonward.png" style="width: 260px;height: 203px;">
+
+                      </span>
+                    </div>
+                    <div class="col-auto">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12">
+              <div class="card shadow border-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col"> <span class="h3 font-bold mb-0">
+                        <img src="\assets\FlexiTicket.png" style="width: 260px;height: 203px;">
+
+                      </span> </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+<br/>
+          <span style="font-size: 18px;font-weight:bold;color:rgb(18, 17, 17)"><i class="fa fa-shield"
+              aria-hidden="true"></i> &nbsp;&nbsp;All bus ratings include safety as a major factor</span>
+          <ul class="nav nav-tabs mt-4 overflow-x border-0 topnav">
+            <li class="nav-item "> <a class="nav-link">{{totalBusdetail?.length}} Buses found</a> </li>
+            <li class="nav-item "> <a class="nav-link" style="margin-left: 54px;">SORT BY:</a> </li>
+            <li class="nav-item"> <a class="nav-link" style="margin-left:18px">Departure</a> </li>
+            <li class="nav-item"> <a class="nav-link" style="margin-left:100px">Duration</a> </li>
+            <li class="nav-item"> <a class="nav-link" style="margin-left:18px">Arrival</a> </li>
+            <li class="nav-item"> <a class="nav-link" style="margin-left:125px">Rating</a> </li>
+            <li class="nav-item"> <a class="nav-link" style="margin-left:39px">Fare </a> </li>
+            <li class="nav-item"> <a class="nav-link" style="margin-left:90px">Seat Available</a> </li>
+
+          </ul>
+        </div>
+      </div>
+    </header> <!-- Main -->
+    <main class="py-6" *ngIf="mdu1">
+      <div class="container-fluid" *ngFor="let busdata of totalBusdetail">
+        <!-- Card stats -->
+        <div class="row border g-6 mb-6">
+
+          <div class="col-xl-3 col-sm-6 col-12">
+            <div class="card border-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col"> <span class="font-bold d-block mb-2" style="font-size: 18px;color:black">
+                      {{busdata.BusName}}</span>
+                    <span class="mb-0" style="font-size:13px;color:rgb(151, 149, 149)">{{busdata.Description}}</span>
+                  </div>
+                  <div class="col-auto">
+
+                  </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                  <span style="color:rgb(151, 149, 149)"><i class="fa-solid fa-bottle-water" *ngIf="busdata.WaterBottle == 'Yes' "></i>&nbsp;&nbsp;&nbsp;<i
+                      class="fa-solid fa-bed" *ngIf="busdata.ACSleeper == 'Yes' " ></i>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-wifi" *ngIf="busdata.FreeWifi == 'Yes' "></i>&nbsp;&nbsp;&nbsp;<i
+                      class="fa-solid fa-charging-station" *ngIf="busdata.ChargingStation == 'Yes' "></i>&nbsp;&nbsp;&nbsp;<i class="fa fa-female" *ngIf="busdata.WashRoom == 'Yes' " ></i>
+                    <i class="fa-solid fa-person" *ngIf="busdata.WashRoom == 'Yes' " ></i>
+                  </span>
+                </div>
+                <div style="margin-top: 20px;">
+                  <span style="color:rgb(151, 149, 149)">
+                    <i class="fa fa-building" aria-hidden="true"></i>
+                    2 Rest Stop
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-xl-3 col-sm-6 col-12">
+            <div class="card  border-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col"> <span class="d-block mb-2" style="font-size: 18px;color:black">{{busdata.DepartureTime}}
+                    </span> <span class="h3 font-bold mb-0"></span> </div>
+                  <div class="col-auto">
+                    <span style="color:rgb(151, 149, 149)">{{busdata.Duration}}
+                    </span>
+
+                  </div>
+                </div>
+                &nbsp;
+                <div style="margin-top: 10px;">
+                  <span style="color:rgb(151, 149, 149)">{{busdata.Departure}}
+                  </span>
+                </div>
+                <div style="    margin-top: 24px;">
+                  <span style="color:rgb(151, 149, 149)" (click)="amenities(busdata)" data-bs-toggle="modal" data-bs-target="#exampleModalone"
+                  data-bs-whatever="@mdo">Amenities
+                  </span> &nbsp;&nbsp;
+                  <span style="color:red"> | </span>&nbsp;&nbsp;<span style="color:rgb(151, 149, 149)"
+                    (click)="busphoto(busdata)"  data-bs-toggle="modal" data-bs-target="#exampleModaltwo"
+                    data-bs-whatever="@mdo">Bus Photo
+                  </span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 col-12">
+            <div class="card  border-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col"> <span class="d-block mb-2" style="font-size: 18px;color:black">{{busdata.ArrivalTime}}</span>
+                    <span class="h3 font-bold mb-0"></span>
+                  </div>
+                  <div class="col-auto">
+                    <button style="background-color: green;"><span
+                        style="color:white;font-size: 13px;font-weight:bold"><i
+                          class="fa-solid fa-star"></i>&nbsp;&nbsp;{{busdata.rating}}</span></button>
+
+                  </div>
+                </div>
+                <div style="margin-top:5px;">
+                  <span style="color:red">{{totaydate}}
+                  </span>
+
+                </div>
+                <div style="margin-top:5px">
+                  <span style="color:rgb(100, 100, 100)">{{busdata.Arrival}}
+                  </span> <br />
+
+
+                </div>
+                <div style="margin-top: 24px;">
+                  <span style="color:rgb(151, 149, 149)" (click)="reststop(busdata)" data-bs-toggle="modal" data-bs-target="#exampleModalfour"
+                  data-bs-whatever="@mdo">Rest Stop
+                  </span> &nbsp;&nbsp; <span style="color:red" > | </span> &nbsp;&nbsp;<span
+                    style="color:rgb(151, 149, 149) " (click)="reviewpage(busdata)"  data-bs-toggle="modal" data-bs-target="#exampleModalthree"
+                    data-bs-whatever="@mdo">Review &nbsp;&nbsp;
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 col-12">
+            <div class="card border-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col"> <span class="d-block mb-2" style="font-size: 18px;color:rgb(82, 81, 81)">Starts
+                      From<br />INR <span style="color:black;font-weight: bold;">
+                      {{busdata.SleeperFare}}
+                      </span>
+                      Ticket</span> <span class="h3 font-bold mb-0"></span>
+
+                  </div>
+                  <div class="col-auto">
+                    <span style="color:rgb(100, 100, 100);font-size: 14px;font-weight:bold">{{busdata.Breath}}&nbsp;seat Availble</span>
+
+                  </div>
+                </div>
+                <div style="margin-top: 26px;">
+
+                  <button style="color:white;font-weight:bold;background-color:#e6545b;margin-left: 161px;
+                   border: 1px solid #e6545b;" (mouseover)="this.hideElement = true" (click)="seatpage(busdata)" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                      data-bs-whatever="@mdo"> VIEW
+                    SEAT</button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+</div>
+
+ <div class="modal fade" id="exampleModalfive" tabindex="-1" aria-labelledby="exampleModalfive" aria-hidden="true">
+  <div class="modal-dialog" >
+    <div class="modal-content" style="background-color: #eee;" *ngFor="let data of BookingArr">
+      <div class="modal-header" style="background-color:#e6545b;">
+        <img src="https://i.postimg.cc/zXFNsGkg/redbus-white.png" alt="redBus" width="60px">
+        <h3 class="modal-title heading" id="exampleModalLabel">{{data.busname}}</h3>
+        <h3> Rs {{data.fare}}</h3>
+
+      </div>
+      <div class="modal-body" >
+        <div class="form-group row">
+          <label for="issuse" class="col-sm-2 col-form-label modallabal">Name:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control field" id="issuse" value="{{data.name}}">
+          </div>
+        </div>&nbsp;
+        <div class="form-group row">
+          <label for="projectlist" class="col-sm-2 col-form-label modallabal">Email:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control field" id="projectlist" value="{{data.email}}">
+          </div>
+        </div>&nbsp;
+
+        <div class="form-group row">
+          <label for="assets" class="col-sm-2 col-form-label modallabal">Contact No:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control field" id="assets" value="{{data.phone}}">
+          </div>
+        </div>&nbsp;
+        <div class="form-group row">
+          <label for="assets" class="col-sm-2 col-form-label modallabal">Joureny:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control field" id="assets"
+              value=" {{data.from}} TO {{data.To}}">
+          </div>
+        </div> &nbsp;
+        <div class="form-group row">
+          <label for="assets" class="col-sm-2 col-form-label modallabal">Seat No</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control field" id="assets" value="{{data.seatno}}">
+          </div>
+        </div><br />
+        <div class="form-group row">
+          <label for="assets" class="col-sm-2 col-form-label modallabal">Seat Type</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control field" id="assets" value="{{data.Desc}}">
+          </div>
+        </div>
+      </div><br />
+      <div class="modal-footer">
+        <button type="button" class="btn" style="margin-right:200px;color:white;background-color: #e6545b;"
+          (click)="pay(data.busname,data.fare)">Pay Now</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #eee;">
+      <main class="py-6" *ngIf="ticketpage">
+        <div class="container-fluid">
+          <!-- Card stats -->
+          <div class="row border g-6 mb-6">
+  
+            <div class="col-12">
+              <div class="card border-0">
+                <div class="card-body">
+                  <h6 style="color:black; margin-bottom:11px;font-weight:bold" >Lower Desk</h6>
+                  <div class="row" style="margin-top:20px">
+                    <img src="/assets/handle.png" style="width:50px;margin-left: -2px;margin-top: -6px;
+                      ">
+                      <span   style="margin-top: -24px;
+                      margin-left: 50px;">
+                      
+                      <i class="fa-solid fa-bed" 
+                      style="width:50px"   [ngStyle]="{'color': (seatArr.includes(name.drop)) ? 'green' : '' }"  title="{{name.drop}}" *ngFor="let name of lowerArr[0]" (click)="stop(name.drop)"></i>
+                      </span>
+                    </div>
+                </div>
+  
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="card  border-0">
+                <div class="card-body">
+                  <h6 style="color:black; margin-bottom:11px;font-weight:bold">Upper Desk</h6>
+                  <span class="row" style="margin-top:20px">
+                    <i class="fa-solid fa-bed" style="width:50px" title="{{name.drop}}"*ngFor="let name of upperArr[0]"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="card  border-0">
+                <div class="card-body" style="margin-left:167px">
+                  <div class="row" >
+                    <div class="col"><span style="color:green"><i class="fa-solid fa-bed"
+                          style="width:80px;color:green"></i><span style="margin-left:-45px ;">Booked</span></span>
+  
+                      <span class="h3 font-bold mb-0"></span>
+                    </div>
+                
+                  </div>
+                  <div style="margin-top:5px;">
+                    <span style="color:blue"><i class="fa-solid fa-bed" style="width:80px;color:blue"></i><span
+                        style="margin-left:-45px ;">Men Seat</span>
+                    </span>
+  
+                  </div>
+                  <div style="margin-top:5px">
+                    <span style="color: #AA336A"><i class="fa-solid fa-bed" style="width: 80px;color :#AA336A"></i> <span
+                        style="margin-left:-45px ;">Women Seat</span>
+                    </span> <br />
+  
+  
+                  </div>
+                  <div style="margin-top:5px">
+                    <span style="color:black"><i class="fa-solid fa-bed" style="width:80px;color:black"></i><span
+                        style="margin-left:-45px ;">Availble</span>
+                    </span> <br />
+  
+  
+                  </div>
+  
+                </div>
+  
+              </div>
+            </div>
+            <div class="col-12" *ngIf="stopdetails">
+              <div class="card border-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <span class="d-block mb-2" style="font-size: 18px;color:rgb(82, 81, 81)">Boarding<br />
+                        <span style="color:rgb(100, 100, 100);font-size: 14px;font-weight:bold" *ngFor="let name of boarddetailArr[0]"><input type="checkbox"
+                            class="checkbox"  (click)="getBoard(name.board)"/>
+  
+                          &nbsp;{{name.board}}<br>&nbsp;
+                        </span>
+                        </span> 
+  
+                    </div>
+                    <div class="col-auto" >
+                      <span style="font-size: 18px;color:rgb(82, 81, 81)">Dropping <br></span><span
+                          style="color:rgb(100, 100, 100);font-size: 14px;font-weight:bold" *ngFor="let name of dropdetailArr[0]" ><input type="checkbox"
+                            class="checkbox" (click)="getdrop(name.drop)" />&nbsp;{{name.drop}}<br>&nbsp;</span>
+                    </div>
+                  </div>
+                  <div style="margin-top: 26px;">
+  
+                    <button style="color:white;font-weight:bold;background-color:#e6545b;margin-left:160px;
+                     border: 1px solid #e6545b;" data-bs-toggle="modal" data-bs-target="#exampleModalfive"
+                  data-bs-whatever="@mdo"(click)="bookDetails()">BOOK Now</button>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </main> 
+   
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalone" tabindex="-1" aria-labelledby="exampleModalLabelone" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-header" style="background-color:#e6545b;">
+      <img src="https://i.postimg.cc/zXFNsGkg/redbus-white.png" alt="redBus" width="60px">
+      <h4 class="modal-title heading" id="exampleModalLabel">{{amenitiesArr[0]?.BusName}}</h4>
+
+    </div>
+    <div class="modal-content" style="background-color: #eee;">
+      <div class="col-12" *ngIf="amenitiesvis">
+        <div class="card border-0">
+          <div class="card-body" style="margin-left:170px;">
+            <h6 style="color:black; margin-bottom:11px;font-weight:bold">Amtie</h6>
+            <div class="row">
+              <span  *ngIf="amenitiesArr[0]?.WaterBottle == 'Yes'"><i class="fa-solid fa-bottle-water"></i><span style="  margin-left: 17px;
+                   font-weight: bold;  color: black;font-size:16px;">Water Bottle </span></span>
+
+              <span *ngIf="amenitiesArr[0]?.ACSleeper == 'Yes'"><i class="fa-solid fa-bed"></i><span style="  margin-left: 17px;
+                  font-weight: bold;  color: black;font-size:16px;">AC Sleeper</span></span>
+              <span *ngIf="amenitiesArr[0]?.FreeWifi == 'Yes'"><i class="fa-solid fa-wifi"></i><span style="  margin-left: 17px;
+                   font-weight: bold;  color: black;font-size:16px;">Free Wifi</span></span>
+              <span *ngIf="amenitiesArr[0]?.ChargingStation == 'Yes'"><i class="fa-solid fa-charging-station"></i><span style="  margin-left: 17px;
+                   font-weight: bold;  color: black;font-size:16px;">Charging Station </span></span>
+                         <span *ngIf="amenitiesArr[0]?.WashRoom == 'Yes'" ><i class="fa fa-female"></i><i class="fa-solid fa-person"></i><span style="  margin-left: 17px;
+                          font-weight: bold;  color: black;font-size:16px;">Wash Room</span></span>
+        
+            </div>
+            <div style="margin-top:10px;">
+
+
+            </div>
+
+
+
+
+          </div>
+
+        </div>
+
+      </div>
+   
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModaltwo" tabindex="-1" aria-labelledby="exampleModalLabeltwo" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-header" style="background-color:#e6545b;">
+      <img src="https://i.postimg.cc/zXFNsGkg/redbus-white.png" alt="redBus" width="60px">
+      <h4 class="modal-title heading" id="exampleModalLabel">{{BusName}}</h4>
+
+    </div>
+    <div class="modal-content" style="background-color: #eee;">
+      <div class="col-12">
+        <div class="card" *ngIf="busimagevis">
+          <div class="card-body"  style="margin-left: 115px;" >
+            <h3 style="color:black; margin-bottom:11px;font-weight:bold">Bus Image</h3>
+
+            <div class="row" *ngFor="let name of photoArr[0]">
+              &nbsp; <img src="/assets/{{name.photo}}.jpeg" style="width:300px;height: 200px;margin-top:20px">&nbsp;<br/>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalthree" tabindex="-1" aria-labelledby="exampleModalLabelthree" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-header" style="background-color:#e6545b;">
+      <img src="https://i.postimg.cc/zXFNsGkg/redbus-white.png" alt="redBus" width="60px">
+      <h4 class="modal-title heading" id="exampleModalLabel">{{reviewArr[0]?.BusName}}</h4>
+
+    </div>
+    <div class="modal-content" style="background-color: #eee;">
+    
+      <div class="col-12" *ngIf="reviewvis">
+        <div class="card border-0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h3 style="color:black; margin-bottom:11px;font-weight:bold">Review Page</h3>
+
+                <span class="h3 font-bold mb-0"></span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape  text-white text-lg rounded-circle" style="background-color: green;    width: 28px;
+                padding-left: 4px">
+                  {{reviewArr[0].rating}}
+                </div>
+              </div>
+            </div><br />
+            2<i class="fa-solid fa-star"></i>
+            <div class="quiz-progress progress" style="margin-left:32px;margin-top:-16px">
+              <div class="progress-bar progress-bar-striped active progress-bar-info" [style.width.%]="20" id="bar"
+                class="barstyle">
+
+              </div>
+            </div> <br />
+            3<i class="fa-solid fa-star"></i>
+            <div class="quiz-progress progress" style="margin-left:32px;margin-top:-16px">
+              <div class="progress-bar progress-bar-striped active progress-bar-info" [style.width.%]="30" id="bar"
+                class="barstyle1">
+
+              </div>
+            </div> <br />
+            4<i class="fa-solid fa-star"></i>
+            <div class="quiz-progress progress" style="margin-left:32px;margin-top:-16px">
+              <div class="progress-bar progress-bar-striped active progress-bar-info" [style.width.%]="55" id="bar"
+                class="barstyle2">
+
+              </div>
+            </div><br />
+            5<i class="fa-solid fa-star"></i>
+            <div class="quiz-progress progress" style="margin-left:32px;margin-top:-16px">
+              <div class="progress-bar progress-bar-striped active progress-bar-info" [style.width.%]="80" id="bar"
+                class="barstyle3">
+
+              </div>
+            </div><br />
+          </div>
+
+        </div>
+      </div>
+   
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalfour" tabindex="-1" aria-labelledby="exampleModalLabelfour" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-header" style="background-color:#e6545b;">
+      <img src="https://i.postimg.cc/zXFNsGkg/redbus-white.png" alt="redBus" width="60px">
+      <h4 class="modal-title heading" id="exampleModalLabel">{{busstopArr[0]?.BusName}}</h4>
+
+    </div>
+    <div class="modal-content" style="background-color: #eee;">
+    
+     
+      <div class="col-12" *ngIf="reststopvis">
+        <div class="card border-0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col" style="margin-left:80px;">
+                <span class="d-block mb-2" style="font-size: 18px;color:rgb(82, 81, 81)">Stop 1<br />
+                  <span style="color:rgb(100, 100, 100);font-size: 12px;font-weight:bold"><i class="fa fa-circle"
+                      aria-hidden="true"></i>
+
+
+                    &nbsp;Arrives -{{busstopArr[0].TimingStop1}}
+                  </span><br />
+                  <span style="color:green;font-size: 14px;font-weight:bold;margin-right: 41px;">&nbsp;Stops for 10 mins</span>
+                  <br /><span style="color:rgb(144, 144, 144);font-size: 14px;font-weight:bold">&nbsp;{{busstopArr[0].Stop1}}</span> </span> <span class="h3 font-bold mb-0"></span>
+
+              </div>
+              <div class="col-auto" style="margin-right: 62px;">
+                <span style="font-size: 18px;color:rgb(82, 81, 81)">Stop 2 <br><span
+                    style="color:rgb(100, 100, 100);font-size: 12px;font-weight:bold"><i class="fa fa-circle"
+                      aria-hidden="true"></i>
+
+                    &nbsp;Arrives-{{busstopArr[0].TimingStop2}}
+                  </span><br><span style="color:green;font-size: 14px;font-weight:bold">Stops for 10 mins
+                  </span><br><span style="color:rgb(100, 100, 100);font-size: 14px;font-weight:bold">&nbsp;{{busstopArr[0].Stop2}}
+                  </span></span>
+              </div>
+            </div>
+       
+
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+</div>

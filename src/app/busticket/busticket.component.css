@@ -1,0 +1,54 @@
+.inp {
+    border:none;
+    border-bottom: 2px solid  #113d64;;
+    padding: 5px 10px;
+    outline: none;
+    width: 100px;
+  }
+  .inp1{
+    border:none;
+    border-bottom: 2px solid  #113d64;;
+    padding: 3px 10px;
+    outline: none;
+    width: 140px;
+  }
+  input[type="date"]::before {
+	color: #999999;
+	content: attr(placeholder);
+}
+input[type="date"] {
+	color: #ffffff;
+}
+input[type="date"]:focus,
+input[type="date"]:valid {
+	color: #666666;
+}
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+	content: "" !important;
+}
+.sidenav{
+    background-color: rgb(252, 250, 250);
+    height: 100%;
+  }
+  /* height: 106%;
+  width: 351%; */
+  .sidenavword{
+    color:black;
+    font-weight: bold;
+  }
+  .sidnavbar{
+    width: 80% !important;
+  }
+  .sideicon
+  {
+    margin-bottom: 666px;
+
+  }
+  @media only screen and (max-width: 768px)  {
+
+    .sidnavbar{
+        width: 30% !important;
+      }
+
+}

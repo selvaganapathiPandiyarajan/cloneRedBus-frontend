@@ -1,0 +1,260 @@
+<!-- Section: Design Block -->
+<section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+          background-image: url('/assets/hero.jpg');
+          height: 300px;
+          background-image:no-repeat;
+          "></div>
+    <!-- Background image -->
+  
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+          margin-top: -100px;
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(30px);
+          ">
+      <div class="card-body py-5 px-md-5">
+  
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+      <img src="\assets\redbus_logo.png" style="width:100px">
+ <h2 class="fw-bold mb-5">Sign up here</h2>
+            <form [formGroup]="signupForm">
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-check-label" for="form2Example33" style="font-weight:bold">
+                   First Name
+                    </label>
+
+                    <input type="text" id="form3Example1" class="form-control" placeholder="Enter First Name" formControlName="firstname"/>
+                    <div *ngIf = "signupForm.controls['firstname'].hasError('required') && signupForm.controls['firstname'].touched" class="alert alert-danger err pro">
+                        First Name is Mandatory
+                       </div>
+                       <div   *ngIf = "signupForm.controls['firstname'].hasError('minlength') && signupForm.controls['firstname'].touched" class="alert alert-danger err pro">
+                           Minimum 5 Characters Reqired
+                       </div>
+                       <div  *ngIf = "signupForm.controls['firstname'].hasError('maxlength') && signupForm.controls['firstname'].touched"class="alert alert-danger err pro">
+                           Maximum 30 Characters are Allowed
+                       </div>
+                       <div  *ngIf = "signupForm.controls['firstname'].hasError('pattern') && signupForm.controls['firstname'].touched"class="alert alert-danger err pro">
+               Invalid  First Name
+                     </div>  
+                </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-check-label" for="form2Example33" style="font-weight:bold">
+                    Last Name
+                    </label>
+
+                    <input type="text" id="form3Example2" class="form-control"  placeholder="Enter Last Name" formControlName="lastname"/>
+                    <div *ngIf = "signupForm.controls['lastname'].hasError('required') && signupForm.controls['lastname'].touched" class="alert alert-danger err pro">
+                        Last Name is Mandatory
+                       </div>
+                       <div   *ngIf = "signupForm.controls['lastname'].hasError('minlength') && signupForm.controls['lastname'].touched" class="alert alert-danger err pro">
+                           Minimum 5 Characters Reqired
+                       </div>
+                       <div  *ngIf = "signupForm.controls['lastname'].hasError('maxlength') && signupForm.controls['lastname'].touched"class="alert alert-danger err pro">
+                           Maximum 30 Characters are Allowed
+                       </div>
+                       <div  *ngIf = "signupForm.controls['lastname'].hasError('pattern') && signupForm.controls['lastname'].touched"class="alert alert-danger err pro">
+               Invalid  Last Name
+                     </div>  
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-check-label" for="form2Example33" style="font-weight:bold">
+                    Email
+                    </label>
+
+                    <input type="text" id="form3Example1" class="form-control" placeholder="Enter Email address" formControlName="email" (keyup)="checkEmail()"/>
+                    <div *ngIf = "signupForm.controls['email'].hasError('required') && signupForm.controls['email'].touched" class="alert alert-danger err pro">
+                        Email  is Mandatory
+                       </div>
+                       <div  *ngIf = "signupForm.controls['email'].hasError('pattern') && signupForm.controls['email'].touched"class="alert alert-danger err pro">
+               Invalid Email
+                     </div>
+                     <div  *ngIf ="emailCheck" class="alert alert-danger err pro">
+                      Already registed Email
+                            </div>
+                  </div>
+                </div>
+                <!-- <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <div class="wrapper">
+                      <ngx-intl-tel-input
+                        [cssClass]="'custom'"
+                        [preferredCountries]="preferredCountries"
+                        [enableAutoCountrySelect]="true"
+                        [enablePlaceholder]="true"
+                        [searchCountryFlag]="true"
+                        [searchCountryField]="[
+                          SearchCountryField.Iso2,
+                          SearchCountryField.Name
+                        ]"
+                        [selectFirstCountry]="false"
+                        [selectedCountryISO]="CountryISO.India"
+                        [maxLength]="15"
+                        [phoneValidation]="true"
+                        [separateDialCode]="separateDialCode"
+                        [numberFormat]="PhoneNumberFormat.National"
+                        name="phone"
+                        formControlName="phone"
+                      >
+                      </ngx-intl-tel-input>
+                      <div *ngIf = "signupForm.controls['phone'].hasError('required') && signupForm.controls['phone'].touched" class="alert alert-danger err pro">
+                        Contact number  is Mandatory
+                               </div>
+                    
+                    </div>
+                    
+                  </div>
+                 
+                </div> -->
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-check-label" for="form2Example33" style="font-weight:bold">
+                  Contact Number
+                    </label>
+  <br/>
+                      <input type="text"  class="form-control" ng2TelInput (hasError)="($event)" (ng2TelOutput)="getNumber($event)" (intlTelInputObject)="telInputObject($event)"  (countryChange)="onCountryChange($event)"
+                       style="width:58vh;height:5vh;"  formControlName="phone" id="phone" (keyup)="phonecheck()"/>
+
+                   
+                               <div *ngIf = "phoneerr" class="alert alert-danger err pro">
+                                Minimum 9 Character
+                                       </div>
+        
+                                       <div *ngIf = "phoneerr1" class="alert alert-danger err pro">
+                                        Minimum 10 Character
+                                               </div>
+                                               <div *ngIf = "phoneCheck" class="alert alert-danger err pro">
+
+Already number Register                                              </div>
+                                               
+                
+
+                </div>
+                </div>
+   
+              </div>
+        
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-check-label" for="form2Example33" style="font-weight:bold">
+                    Password
+                    </label>
+
+                    <input type="text" id="form3Example1" class="form-control" placeholder="Enter Password address" formControlName="pass"/>
+                    <div *ngIf = "signupForm.controls['pass'].hasError('required') && signupForm.controls['pass'].touched" class="alert alert-danger err pro">
+                        Password is Mandatory
+                               </div>
+                               <div   *ngIf = "signupForm.controls['pass'].hasError('minlength') && signupForm.controls['pass'].touched" class="alert alert-danger err pro">
+                                   Minimum 3 Characters Reqired
+                               </div>
+                               <div  *ngIf = "signupForm.controls['pass'].hasError('maxlength') && signupForm.controls['pass'].touched"class="alert alert-danger err pro">
+                                   Maximum 8 Characters are Allowed
+                               </div>
+                               <div  *ngIf = "signupForm.controls['pass'].hasError('pattern') && signupForm.controls['pass'].touched"class="alert alert-danger err pro">
+                       Invalid Password
+                             </div>  
+                </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-check-label" for="form2Example33" style="font-weight:bold">
+                        Retype-Password
+                      </label>
+   <input type="text" id="form3Example2" class="form-control"  placeholder="Enter Retype-Password Number" formControlName="retypepass" (keyup)="checkPassword()"/>
+   <div *ngIf = "signupForm.controls['retypepass'].hasError('required') && signupForm.controls['retypepass'].touched" class="alert alert-danger err pro">
+    Confirm Password is Mandatory
+           </div>
+           <div *ngIf = "passcon" class="alert alert-danger err pro">
+Password Doesnot Match
+          </div>
+</div>
+                  </div>
+                </div>
+              
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-check-label" for="form2Example33" style="font-weight:bold">
+                        Date of Birth
+                      </label>
+
+                    <input type="date"  class="form-control" placeholder="Enter Date of  Birth" formControlName="dob" id="dob" (change)="checkdate()"/>
+                    <div *ngIf = "signupForm.controls['dob'].hasError('required') && signupForm.controls['dob'].touched" class="alert alert-danger err pro">
+                    DoB is Mandatory
+                               </div>
+                               <div *ngIf = "invalidage" class="alert alert-danger err pro">
+                                below age 5 is not support                                       
+                              </div>
+                              <div *ngIf = "invalidage1" class="alert alert-danger err pro">
+                                Future Dob is not accept
+                              </div>
+                               
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                        <label class="form-check-label" for="inlineRadio1" style="margin-top:30px;font-weight: bold;">Gender</label>&nbsp;
+                
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="gender" id="inlineRadio1" style="color:rgb(218, 212, 212)"  value="male">
+                    <label class="form-check-label" for="inlineRadio1" style="color:rgb(218, 212, 212)">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="gender" id="inlineRadio2" style="color:rgb(218, 212, 212)" value="femele">
+                    <label class="form-check-label" for="inlineRadio2" style="color:rgb(218, 212, 212)">Femele</label>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="form-check d-flex justify-content mb-4">
+                <input class="form-check-input me-2" type="checkbox" value="" id="checkval"  (change)="checkbox()"/>
+                <label class="form-check-label" for="form2Example33" >
+                  Do you have GST number
+                </label>
+              </div>
+              
+              <div class="row" *ngIf="showgstform">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-check-label" for="form2Example33" style="font-weight:bold">
+                    GST NO
+                    </label>
+
+                    <input type="text" id="form3Example1" class="form-control" placeholder="Enter Password" formControlName="gstno"/>
+             
+                </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-check-label" for="form2Example33" style="font-weight:bold">
+                      Bussiness Name
+                      </label>
+   <input type="text" id="form3Example2" class="form-control"  placeholder="Enter Retype-Password" formControlName="bussinessname"/>
+       
+</div>
+                  </div>
+                </div>
+              <!-- Submit button -->
+              <button type="submit" class="btn btn btn-block mb-4" [disabled]=" invalidage || invalidage1 || passcon || signupForm.invalid" style="    width: 50%;background-color:#e6545b ;font-weight: bold;color:white" (click)="register()">
+                Sign up
+              </button>
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->

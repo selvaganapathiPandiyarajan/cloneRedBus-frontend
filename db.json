@@ -1,0 +1,45 @@
+{
+  "signuser": [
+    {
+      "firstname": "selva",
+      "lastname": "ganapathi",
+      "email": "selvaganapathip@gmail.com",
+      "gender": "male",
+      "role": "customer",
+      "userage": 6,
+      "id": 1
+    },
+    {
+      "firstname": "selva",
+      "lastname": "ganapathi",
+      "email": "abc@gmail.com",
+      "pass": "selva",
+      "retypepass": "selva",
+      "gender": "male",
+      "contactno": "8191186456",
+      "dob": "2016-05-10",
+      "bussinessname": "",
+      "gstno": "",
+      "role": "customer",
+      "userage": 6,
+      "id": 2
+    },
+   
+    {
+      "firstname": "selva",
+      "lastname": "ganapathi",
+      "email": "selva@gmail.com",
+      "pass": "selva",
+      "retypepass": "selva",
+      "gender": "male",
+      "phone": "8190086456",
+      "dob": "2012-05-18",
+      "bussinessname": "",
+      "gstno": "",
+      "role": "customer",
+      "userage": 10,
+      "otp": 825407,
+      "id": 5
+    }
+  ]
+}
